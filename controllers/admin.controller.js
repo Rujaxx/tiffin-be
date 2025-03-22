@@ -11,19 +11,19 @@ exports.getDeliveries = async (req, res) => {
         const tiffins = await TiffinModel.find({ deletedOn: null, date: date }).lean()
         // add fake entries for  1000 testing
         // const tiffins = []
-        for (let i = 0; i < 100; i++) {
-            tiffins.push({
-                _id: i,
-                fullName: `Name ${i}`,
-                address: `Address ${i}`,
-                mobileNumber: `Phone ${i}`,
-                date: `Date ${i}`,
-                kitchen: `kitchen ${i}`,
-                riderName: `Rider Name ${i}`,
-                landmark: `Landmark ${i}`,
-                quantity: i
-            })
-        }
+        // for (let i = 0; i < 100; i++) {
+        //     tiffins.push({
+        //         _id: i,
+        //         fullName: `Name ${i}`,
+        //         address: `Address ${i}`,
+        //         mobileNumber: `Phone ${i}`,
+        //         date: `Date ${i}`,
+        //         kitchen: `kitchen ${i}`,
+        //         riderName: `Rider Name ${i}`,
+        //         landmark: `Landmark ${i}`,
+        //         quantity: i
+        //     })
+        // }
         return res.status(200).json({ message: "Deliveries fetched successfully", data: tiffins })
     } catch (error) {
         return res.status(500).json({ message: error.message })
